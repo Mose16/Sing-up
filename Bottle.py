@@ -1,12 +1,14 @@
+from bottle import run, route, view, get, post, request
+from itertools import count
 #LOGS
 #Ver-1.1 --- Added tickets list
 #Ver-1.2 --- Adding server functionality
 
 
 class Ticket:
-    _int = count = (0)
+    _ids = count (0)
     
-    def __inti__(self,name,email,date_of_birth, check_in):
+    def __init__(self,name,email,date_of_birth, check_in):
         self.id = next(self._ids)
         self.name = name
         self.email = email
@@ -24,8 +26,8 @@ TICKETS = [
 #Pages
 
 #Index page
-@route("/")
-@view("index")
+@route('/')
+@view('index')
 def index():
     pass
 
