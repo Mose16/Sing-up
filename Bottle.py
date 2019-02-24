@@ -4,6 +4,8 @@ from itertools import count
 #Ver-1.1 --- Added tickets list
 #Ver-1.2 --- Adding server functionality
 
+#Ver-1.4 --- Added check in page
+
 
 class Ticket:
     _ids = count (0)
@@ -16,7 +18,7 @@ class Ticket:
         self.check_in = date_of_birth
     
 
-TICKETS = [
+tickets = [
     Ticket("Moses", "moses@gmail.com", "16/11/2001", False),
     Ticket("Jerry", "moses@gmail.com", "16/11/2001", False),
     Ticket("Tom", "moses@gmail.com", "16/11/2001", False)
@@ -30,5 +32,12 @@ TICKETS = [
 @view('index')
 def index():
     pass
+
+#Check in page
+@route('/check-in')
+@view('check-in')
+def check_in():
+    data = dict(ticket_list = tickets)
+    return data
 
 run(host='0.0.0.0', port = 8080, reloader = True, debug = True)
